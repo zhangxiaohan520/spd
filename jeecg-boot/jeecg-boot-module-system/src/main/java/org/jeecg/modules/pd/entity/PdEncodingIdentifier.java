@@ -4,15 +4,13 @@ import java.io.Serializable;
 import java.io.UnsupportedEncodingException;
 import java.util.Date;
 import java.math.BigDecimal;
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableName;
+
+import com.baomidou.mybatisplus.annotation.*;
 import lombok.Data;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.jeecgframework.poi.excel.annotation.Excel;
 import org.jeecg.common.aspect.annotation.Dict;
-import com.baomidou.mybatisplus.annotation.TableLogic;
 
 /**
  * @Description: 应用标识符表
@@ -38,6 +36,7 @@ public class PdEncodingIdentifier implements Serializable {
 	@Excel(name = "类型", width = 15)
     private java.lang.String type;
 	/**长度*/
+	@TableField(strategy = FieldStrategy.IGNORED)//修改更新null字段
 	@Excel(name = "长度", width = 15)
     private java.lang.Integer length;
 	/**创建人*/
